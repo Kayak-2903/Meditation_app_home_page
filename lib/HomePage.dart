@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:meditation_home_page_ui/config/configurations.dart';
+import 'package:meditation_home_page_ui/content.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -165,17 +166,26 @@ class _HomePageState extends State<HomePage> {
                             return Container(
                               child: Column(
                                 children: [
-                                  Container(
-                                    margin: EdgeInsets.only(left: 20),
-                                    decoration: BoxDecoration(
-                                        color: primaryBlue,
-                                        borderRadius:
-                                            BorderRadius.circular(20)),
-                                    child: Image.asset(
-                                      listItems[index]['iconPath'],
-                                      height: 100,
-                                      width: 140,
-                                      fit: BoxFit.fill,
+                                  InkWell(
+                                    onTap: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  ContentScreen(index: index)));
+                                    },
+                                    child: Container(
+                                      margin: EdgeInsets.only(left: 20),
+                                      decoration: BoxDecoration(
+                                          color: primaryBlue,
+                                          borderRadius:
+                                              BorderRadius.circular(20)),
+                                      child: Image.asset(
+                                        listItems[index]['iconPath'],
+                                        height: 100,
+                                        width: 140,
+                                        fit: BoxFit.fill,
+                                      ),
                                     ),
                                   ),
                                   SizedBox(
